@@ -9,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
 
     //сохранение настроек интерфейса
     private SharedPreferences mSettings;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
