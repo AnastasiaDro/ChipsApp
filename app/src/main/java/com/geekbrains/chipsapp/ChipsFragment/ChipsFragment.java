@@ -26,6 +26,10 @@ public class ChipsFragment extends Fragment implements FragmentInterface {
     int chipsNumber;
     int checkedChipsNum;
 
+    //для отладки вид жетона
+    ChipView chipView;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,16 +43,23 @@ public class ChipsFragment extends Fragment implements FragmentInterface {
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chips, container, false);
+        findViews(view);
+        init();
         return view;
     }
 
-
-
-
+    //найдём все View
     @Override
     public void findViews(View view) {
-
+        chipView = view.findViewById(R.id.chipView);
     }
+
+    //инициализируем все нужное
+    private void init() {
+        ChipClickListener chipClickListener = new ChipClickListener(chipView);
+        chipView.setOnClickListener(chipClickListener);
+    }
+
 
 @Override
     public void postFragment(AppCompatActivity activity, int placeId) {
@@ -57,7 +68,5 @@ public class ChipsFragment extends Fragment implements FragmentInterface {
         ft.replace(placeId, this);
         ft.commit();
     }
-
-
 
     }

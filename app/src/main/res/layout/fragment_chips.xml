@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <com.geekbrains.chipsapp.ChipsFragment.ChipView
+        android:id="@+id/chipView"
         android:layout_width="100sp"
         android:layout_height="100sp"
         app:radius="50"/>

@@ -28,7 +28,9 @@ public class ChipView extends View {
     private int width = 0;
     // Высота элемента
     private int height = 0;
-    boolean isChecked;
+
+
+    private boolean isChecked;
 
     //радиус
     private int radius;
@@ -97,22 +99,6 @@ public class ChipView extends View {
         x = width/2;
         y = height/2;
         radius = width/2;
-//        height = h - getPaddingTop() - getPaddingBottom();
-//        // Отрисовка градусника
-//        thermomRect.set(padding * 2,
-//                padding + headHeight,
-//                width - padding * 2,
-//                height - padding);
-//
-//        tailRect.set(padding * 6,
-//                padding,
-//                width - padding * 6,
-//                height - thermomRect.height());
-//
-//        tempLevel.set(7 * padding,
-//                (int) ((height - 2 * padding - headWidth) * ((double) level / (double) 100)),
-//                width - padding * 7,
-//                height - 4 * padding);
     }
 
     // Инициализация атрибутов пользовательского элемента из xml
@@ -140,15 +126,25 @@ public class ChipView extends View {
 
 
     //изменить цвет жетона, когда на него нажали
-    private void changeColor() {
+    public void changeColor() {
         if (isChecked == true) {
             chipPaint.setColor(baseColor);
+            isChecked = false;
         } else {
             chipPaint.setColor(checkedColor);
+            isChecked = true;
         }
         invalidate();
     }
 
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
+    }
 
 
 }
