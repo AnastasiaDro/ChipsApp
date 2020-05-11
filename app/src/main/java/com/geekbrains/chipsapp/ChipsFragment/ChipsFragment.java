@@ -20,14 +20,18 @@ import static com.geekbrains.chipsapp.Constants.APP_PREFERENCES_CHIPS_NUMBER;
 
 public class ChipsFragment extends Fragment implements FragmentInterface {
 
-
-
+    //Модель
+    ChipsModel chipsModel;
     //число жетонов
     int chipsNumber;
+    int checkedChipsNumber;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        chipsModel = ChipsModel.getInstance();
+        //получим число жетонов из модели
+        chipsNumber = chipsModel.getChipsNumber();
         //вытащим настройки ИЗ КЛАССА С ДАННЫМИ
         //mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         //восстановим количество жетонов

@@ -15,14 +15,18 @@ public class ChipsModel {
     //Map жетонов
     private HashMap chipsMap;
     int chipsNumber;
+    int checkedChipsNumber;
 
 
-//конструктор
+
+
+    //конструктор
     private ChipsModel() {
         //Список наблюдателей
         observers = new LinkedList<>();
         chipsMap = new HashMap();
         chipsNumber = 1;
+        int checkedChipsNumber = 0;
     }
 
 //Метод получения chipsModel
@@ -54,12 +58,15 @@ public class ChipsModel {
     }
 
     //геттеры и сеттеры
+    //количество жетонов
     public int getChipsNumber() {
         return chipsNumber;
     }
-
     public void setChipsNumber(int chipsNumber) {
         this.chipsNumber = chipsNumber;
     }
 
+    //количество собранных жетонов
+    public int getCheckedChipsNumber() { return checkedChipsNumber; }
+    public void setCheckedChipsNumber(int checkedChipsNumber) {this.checkedChipsNumber = checkedChipsNumber;}
 }

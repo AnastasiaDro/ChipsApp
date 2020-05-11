@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = mSettings.edit();
         //сохраним число жетонов
         editor.putInt(APP_PREFERENCES_CHIPS_NUMBER, chipsModel.getChipsNumber());
+        editor.putInt(APP_PREFERENCES_CHECKED_CHIPS_NUMBER, chipsModel.getCheckedChipsNum);
         editor.apply();
     }
 }
