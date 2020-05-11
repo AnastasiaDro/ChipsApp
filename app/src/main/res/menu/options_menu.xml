@@ -5,12 +5,12 @@
     <item
     android:id="@+id/changeChipsNum"
     android:orderInCategory="100"
-    android:title=""
+    android:title="@string/changeChips"
     app:showAsAction="never" />
 
     <item
         android:id="@+id/aboutApp"
-        android:orderInCategory="100"
-        android:title=""
+        android:orderInCategory="200"
+        android:title="@string/aboutApp"
         app:showAsAction="never" />
 </menu>
