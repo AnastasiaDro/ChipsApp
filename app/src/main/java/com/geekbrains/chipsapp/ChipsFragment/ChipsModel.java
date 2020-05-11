@@ -14,6 +14,7 @@ public class ChipsModel {
     public List<Observer> observers;
     //Map жетонов
     private HashMap chipsMap;
+    int chipsNumber;
 
 
 //конструктор
@@ -21,6 +22,7 @@ public class ChipsModel {
         //Список наблюдателей
         observers = new LinkedList<>();
         chipsMap = new HashMap();
+        chipsNumber = 1;
     }
 
 //Метод получения chipsModel
@@ -50,4 +52,14 @@ public class ChipsModel {
         }
 
     }
+
+    //геттеры и сеттеры
+    public int getChipsNumber() {
+        return chipsNumber;
+    }
+
+    public void setChipsNumber(int chipsNumber) {
+        this.chipsNumber = chipsNumber;
+    }
+
 }

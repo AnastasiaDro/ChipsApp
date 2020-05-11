@@ -1,15 +1,29 @@
 package com.geekbrains.chipsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import static com.geekbrains.chipsapp.Constants.*;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.geekbrains.chipsapp.ChipsFragment.ChipsFragment;
+import com.geekbrains.chipsapp.ChipsFragment.ChipsModel;
 import com.geekbrains.chipsapp.aboutFragment.AboutFragment;
+
+import static com.geekbrains.chipsapp.Constants.APP_PREFERENCES_CHIPS_NUMBER;
 
 
 public class MainActivity extends AppCompatActivity {
+
+    //сохранение настроек интерфейса
+    private SharedPreferences mSettings;
+    //число жетонов
+    int chipsNumber;
+//модель
+    ChipsModel chipsModel = ChipsModel.getInstance();
 
     //Фрагменты
     ChipsFragment chipsFragment;
@@ -18,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        //восстановим количество жетонов
+        chipsNumber = mSettings.getInt(APP_PREFERENCES_CHIPS_NUMBER, 1);
+        chipsModel.setChipsNumber(chipsNumber);
         setContentView(R.layout.activity_main);
         initFragment();
     }
@@ -27,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     //создание и публикация фрагмента
     private void initFragment() {
         chipsFragment = new ChipsFragment();
+        aboutFragment = new AboutFragment();
         chipsFragment.postFragment(this, R.id.placeForFr);
     }
 
@@ -39,4 +58,30 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //обработка нажатий на пункты optionsMenu
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.changeChipsNum:
+                //TODO
+                //должно выскакивать окошко с выбором количества жетонов
+                return true;
+            case R.id.aboutApp:
+                //переходим на фрагмент настроек
+                aboutFragment.postFragment(this, R.id.placeForFr);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    //сохраним тут число жетонов
+    @Override
+    public void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = mSettings.edit();
+        //сохраним число жетонов
+        editor.putInt(APP_PREFERENCES_CHIPS_NUMBER, chipsModel.getChipsNumber());
+        editor.apply();
+    }
 }

@@ -14,24 +14,24 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.geekbrains.chipsapp.interfaces.FragmentInterface;
 import com.geekbrains.chipsapp.R;
-import static com.geekbrains.chipsapp.Constants.*;
+
 import static com.geekbrains.chipsapp.Constants.APP_PREFERENCES;
 import static com.geekbrains.chipsapp.Constants.APP_PREFERENCES_CHIPS_NUMBER;
 
 public class ChipsFragment extends Fragment implements FragmentInterface {
 
-    //сохранение настроек интерфейса
-    private SharedPreferences mSettings;
+
+
     //число жетонов
     int chipsNumber;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //вытащим настройки
-        mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        //вытащим настройки ИЗ КЛАССА С ДАННЫМИ
+        //mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         //восстановим количество жетонов
-        chipsNumber = mSettings.getInt(APP_PREFERENCES_CHIPS_NUMBER, 1);
+        //chipsNumber = mSettings.getInt(APP_PREFERENCES_CHIPS_NUMBER, 1);
     }
 
 
@@ -60,13 +60,5 @@ public class ChipsFragment extends Fragment implements FragmentInterface {
     }
 
 
-    //сохраним тут число жетонов
-    @Override
-    public void onPause() {
-        super.onPause();
-        SharedPreferences.Editor editor = mSettings.edit();
-        //сохраним число жетонов
-        editor.putInt(APP_PREFERENCES_CHIPS_NUMBER,  chipsNumber);
-        editor.apply();
-    }
+
     }
