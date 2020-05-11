@@ -1,4 +1,4 @@
-package com.geekbrains.chipsapp;
+package com.geekbrains.chipsapp.interfaces;
 
 import android.view.View;
 

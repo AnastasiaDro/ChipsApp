@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ChipsApp</string>
+    <string name="aboutApp">О приложении</string>
+    <string name="changeChips">Кол-во жетонов</string>
+</resources>

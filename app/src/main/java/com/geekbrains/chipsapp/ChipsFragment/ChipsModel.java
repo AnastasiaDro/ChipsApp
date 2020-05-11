@@ -1,7 +1,7 @@
 package com.geekbrains.chipsapp.ChipsFragment;
 
 
-import com.geekbrains.chipsapp.Observer;
+import com.geekbrains.chipsapp.interfaces.Observer;
 
 import java.util.HashMap;
 import java.util.LinkedList;

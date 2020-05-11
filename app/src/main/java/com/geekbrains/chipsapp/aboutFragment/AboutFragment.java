@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.geekbrains.chipsapp.FragmentInterface;
+import com.geekbrains.chipsapp.interfaces.FragmentInterface;
 import com.geekbrains.chipsapp.R;
 
 public class AboutFragment extends Fragment implements FragmentInterface {
