@@ -1,11 +1,20 @@
 package com.geekbrains.chipsapp.ChipsFragment;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Build;
+import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
+import com.geekbrains.chipsapp.R;
 
 public class ChipView extends View {
 
@@ -27,14 +36,47 @@ public class ChipView extends View {
     //Краска
     private Paint chipPaint;
 
-    public ChipView(Context context, boolean isChecked) {
+    public ChipView(Context context) {
         super(context);
         init();
-        this.isChecked = isChecked;
-        radius = width/7;
+
     }
 
+    // Вызывается при добавлении элемента в макет
+    // AttributeSet attrs - набор параметров, указанных в макете для этого
+    // элемента
+    public ChipView (Context context, AttributeSet attrs){
+        super(context, attrs);
+        initAttr(context, attrs);
+        init();
+    }
+
+    // Вызывается при добавлении элемента в макет с установленными стилями
+    // AttributeSet attrs - набор параметров, указанных в макете для этого
+    // элемента
+    // int defStyleAttr - базовый установленный стиль
+    public ChipView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initAttr(context, attrs);
+        init();
+    }
+
+    // Вызывается при добавлении элемента в макет с установленными стилями
+    // AttributeSet attrs - набор параметров, указанных в макете для этого
+    // элемента
+    // int defStyleAttr - базовый установленный стиль
+    // int defStyleRes - ресурс стиля, если он не был определён в предыдущем параметре
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public ChipView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        initAttr(context, attrs);
+        init();
+    }
+
+
+
     private void init() {
+        radius = width/2;
         chipPaint = new Paint();
         chipPaint.setColor(baseColor);
         chipPaint.setStyle(Paint.Style.FILL);
@@ -54,6 +96,7 @@ public class ChipView extends View {
         //получим координаты (центр)
         x = width/2;
         y = height/2;
+        radius = width/2;
 //        height = h - getPaddingTop() - getPaddingBottom();
 //        // Отрисовка градусника
 //        thermomRect.set(padding * 2,
@@ -72,6 +115,30 @@ public class ChipView extends View {
 //                height - 4 * padding);
     }
 
+    // Инициализация атрибутов пользовательского элемента из xml
+    @SuppressLint("ResourceAsColor")
+    private void initAttr(Context context, AttributeSet attrs) {
+        // При помощи этого метода получаем доступ к набору атрибутов.
+        // На выходе - массив со значениями
+        TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.ChipView, 0, 0);
+
+        // Чтобы получить какое-либо значение из этого массива,
+        // надо вызвать соответствующий метод и передать в этот метод имя
+        // ресурса, указанного в файле определения атрибутов (attrs.xml)
+        baseColor = typedArray.getColor(R.styleable.ChipView_baseColor, Color.GRAY);
+
+        // Вторым параметром идёт значение по умолчанию. Оно будет подставлено,
+        // если атрибут не будет указан в макете
+        checkedColor = typedArray.getColor(R.styleable.ChipView_checkedColor, Color.RED);
+        radius = typedArray.getInteger(R.styleable.ChipView_radius, 10);
+
+// В конце работы дадим сигнал, что массив со значениями атрибутов
+        // больше не нужен. Система в дальнейшем будет переиспользовать этот
+        // объект, и мы больше не получим к нему доступ из этого элемента
+        typedArray.recycle();
+    }
+
+
     //изменить цвет жетона, когда на него нажали
     private void changeColor() {
         if (isChecked == true) {
@@ -81,6 +148,7 @@ public class ChipView extends View {
         }
         invalidate();
     }
+
 
 
 }

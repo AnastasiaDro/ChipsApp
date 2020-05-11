@@ -15,7 +15,7 @@ public class ChipsModel {
     //Map жетонов
     private HashMap chipsMap;
     int chipsNumber;
-    int checkedChipsNumber;
+    int checkedChipsNum;
 
 
 
@@ -67,6 +67,6 @@ public class ChipsModel {
     }
 
     //количество собранных жетонов
-    public int getCheckedChipsNumber() { return checkedChipsNumber; }
-    public void setCheckedChipsNumber(int checkedChipsNumber) {this.checkedChipsNumber = checkedChipsNumber;}
+    public int getCheckedChipsNum() { return checkedChipsNum; }
+    public void setCheckedChipsNum(int checkedChipsNumber) {this.checkedChipsNum = checkedChipsNumber;}
 }

@@ -3,7 +3,7 @@
     <declare-styleable name="ChipView">
         <attr name="baseColor" format="color"/>
         <attr name="checkedColor" format="color"/>
-<!--        <attr name="level" format="integer"/>-->
+        <attr name="radius" format="integer"/>
 
     </declare-styleable>
 

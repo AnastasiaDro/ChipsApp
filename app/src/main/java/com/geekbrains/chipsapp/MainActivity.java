@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences mSettings;
     //число жетонов
     int chipsNumber;
+    //число отмеченных жетонов
+    int checkedChipsNum;
+
 //модель
     ChipsModel chipsModel = ChipsModel.getInstance();
 
@@ -35,7 +38,9 @@ public class MainActivity extends AppCompatActivity {
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         //восстановим количество жетонов
         chipsNumber = mSettings.getInt(APP_PREFERENCES_CHIPS_NUMBER, 1);
+        checkedChipsNum = mSettings.getInt(APP_PREFERENCES_CHECKED_CHIPS_NUMBER, 1);
         chipsModel.setChipsNumber(chipsNumber);
+        chipsModel.setCheckedChipsNum(checkedChipsNum);
         setContentView(R.layout.activity_main);
         initFragment();
     }
@@ -82,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = mSettings.edit();
         //сохраним число жетонов
         editor.putInt(APP_PREFERENCES_CHIPS_NUMBER, chipsModel.getChipsNumber());
-        editor.putInt(APP_PREFERENCES_CHECKED_CHIPS_NUMBER, chipsModel.getCheckedChipsNum);
+        editor.putInt(APP_PREFERENCES_CHECKED_CHIPS_NUMBER, chipsModel.getCheckedChipsNum());
         editor.apply();
     }
 }

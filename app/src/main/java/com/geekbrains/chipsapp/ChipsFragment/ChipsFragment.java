@@ -24,7 +24,7 @@ public class ChipsFragment extends Fragment implements FragmentInterface {
     ChipsModel chipsModel;
     //число жетонов
     int chipsNumber;
-    int checkedChipsNumber;
+    int checkedChipsNum;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,18 +32,13 @@ public class ChipsFragment extends Fragment implements FragmentInterface {
         chipsModel = ChipsModel.getInstance();
         //получим число жетонов из модели
         chipsNumber = chipsModel.getChipsNumber();
-        //вытащим настройки ИЗ КЛАССА С ДАННЫМИ
-        //mSettings = getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        //восстановим количество жетонов
-        //chipsNumber = mSettings.getInt(APP_PREFERENCES_CHIPS_NUMBER, 1);
+        checkedChipsNum = chipsModel.getCheckedChipsNum();
     }
 
 
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_chips, container, false);
-
-
         return view;
     }
 
