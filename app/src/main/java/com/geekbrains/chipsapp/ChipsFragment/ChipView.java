@@ -13,8 +13,6 @@ public class ChipView extends View {
     private int baseColor = Color.GRAY;
     //цвет, когда выбрали жетон
     private int checkedColor = Color.RED;
-    //радиус
-    private float radius;
     float x;
     float y;
     // Ширина элемента
@@ -23,7 +21,8 @@ public class ChipView extends View {
     private int height = 0;
     boolean isChecked;
 
-
+    //радиус
+    private int radius;
 
     //Краска
     private Paint chipPaint;
@@ -32,10 +31,11 @@ public class ChipView extends View {
         super(context);
         init();
         this.isChecked = isChecked;
-
+        radius = width/7;
     }
 
     private void init() {
+        chipPaint = new Paint();
         chipPaint.setColor(baseColor);
         chipPaint.setStyle(Paint.Style.FILL);
     }
@@ -52,8 +52,8 @@ public class ChipView extends View {
         width = w - getPaddingLeft() - getPaddingRight();
         height = h - getPaddingTop() - getPaddingBottom();
         //получим координаты (центр)
-        x = w/2;
-        y = h/2;
+        x = width/2;
+        y = height/2;
 //        height = h - getPaddingTop() - getPaddingBottom();
 //        // Отрисовка градусника
 //        thermomRect.set(padding * 2,
