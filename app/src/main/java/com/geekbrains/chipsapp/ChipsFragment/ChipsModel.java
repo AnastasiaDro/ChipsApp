@@ -3,6 +3,7 @@ package com.geekbrains.chipsapp.ChipsFragment;
 
 import com.geekbrains.chipsapp.Observer;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,11 +12,15 @@ public class ChipsModel {
     private static ChipsModel instance;
     //Список наблюдателей
     public List<Observer> observers;
+    //Map жетонов
+    private HashMap chipsMap;
+
 
 //конструктор
     private ChipsModel() {
         //Список наблюдателей
         observers = new LinkedList<>();
+        chipsMap = new HashMap();
     }
 
 //Метод получения chipsModel
