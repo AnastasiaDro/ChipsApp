@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     int chipsNumber;
     //число отмеченных жетонов
     int checkedChipsNum;
+    boolean isChecked;
 
 //модель
     ChipsModel chipsModel = ChipsModel.getInstance();
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.aboutApp:
                 //переходим на фрагмент настроек
                 aboutFragment.postFragment(this, R.id.placeForFr);
+
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

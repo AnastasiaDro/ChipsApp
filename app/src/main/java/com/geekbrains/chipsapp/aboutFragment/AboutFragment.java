@@ -34,6 +34,7 @@ public class AboutFragment extends Fragment implements FragmentInterface {
         FragmentManager fragmentManager = activity.getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.replace(placeId, this);
+        ft.addToBackStack("tag1");
         ft.commit();
     }
 }

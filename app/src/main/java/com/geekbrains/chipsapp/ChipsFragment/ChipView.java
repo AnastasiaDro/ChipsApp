@@ -28,7 +28,7 @@ public class ChipView extends View {
     private int width = 0;
     // Высота элемента
     private int height = 0;
-
+    ChipsModel chipsModel = ChipsModel.getInstance();
 
     private boolean isChecked;
 
@@ -80,7 +80,12 @@ public class ChipView extends View {
     private void init() {
         radius = width/2;
         chipPaint = new Paint();
-        chipPaint.setColor(baseColor);
+        isChecked = chipsModel.getIsChecked();
+        if (isChecked == true) {
+            chipPaint.setColor(checkedColor);
+        } else {
+            chipPaint.setColor(baseColor);
+        }
         chipPaint.setStyle(Paint.Style.FILL);
     }
 
@@ -137,14 +142,14 @@ public class ChipView extends View {
         invalidate();
     }
 
-
-    public boolean isChecked() {
+    public boolean getIsChecked() {
         return isChecked;
     }
 
-    public void setChecked(boolean checked) {
+    public void setIsChecked(boolean checked) {
         isChecked = checked;
     }
+
 
 
 }

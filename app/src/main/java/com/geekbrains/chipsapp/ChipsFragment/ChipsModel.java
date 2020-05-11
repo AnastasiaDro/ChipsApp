@@ -16,6 +16,8 @@ public class ChipsModel {
     private HashMap chipsMap;
     int chipsNumber;
     int checkedChipsNum;
+    //флаг ченкутости жетона
+    boolean isChecked;
 
 
 
@@ -69,4 +71,7 @@ public class ChipsModel {
     //количество собранных жетонов
     public int getCheckedChipsNum() { return checkedChipsNum; }
     public void setCheckedChipsNum(int checkedChipsNumber) {this.checkedChipsNum = checkedChipsNumber;}
+    public boolean getIsChecked() { return isChecked;}
+    public void setIsChecked(boolean checked) {isChecked = checked;}
+
 }

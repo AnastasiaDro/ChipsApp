@@ -52,12 +52,14 @@ public class ChipsFragment extends Fragment implements FragmentInterface {
     @Override
     public void findViews(View view) {
         chipView = view.findViewById(R.id.chipView);
+
     }
 
     //инициализируем все нужное
     private void init() {
         ChipClickListener chipClickListener = new ChipClickListener(chipView);
         chipView.setOnClickListener(chipClickListener);
+        chipView.setIsChecked(chipsModel.getIsChecked());
     }
 
 
