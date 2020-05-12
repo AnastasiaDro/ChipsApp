@@ -54,6 +54,7 @@ public class ChipsNumAlert extends DialogFragment {
                 @Override
                 public void onClick(View v) {
                     changeChipsNum();
+                    chipsModel.notifyObservers();
                     dismiss();
                 }
             });

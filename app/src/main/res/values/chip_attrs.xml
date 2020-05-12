@@ -4,6 +4,7 @@
         <attr name="baseColor" format="color"/>
         <attr name="checkedColor" format="color"/>
         <attr name="radius" format="integer"/>
+        <attr name="isChecked" format="boolean"/>
 
     </declare-styleable>
 

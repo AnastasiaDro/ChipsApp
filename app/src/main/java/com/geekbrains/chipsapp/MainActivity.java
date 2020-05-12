@@ -40,10 +40,11 @@ public class MainActivity extends AppCompatActivity {
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         //восстановим количество жетонов
         chipsNumber = mSettings.getInt(APP_PREFERENCES_CHIPS_NUMBER, 1);
-        checkedChipsNum = mSettings.getInt(APP_PREFERENCES_CHECKED_CHIPS_NUMBER, 1);
+        checkedChipsNum = mSettings.getInt(APP_PREFERENCES_CHECKED_CHIPS_NUMBER, 0);
         //временная переменная
         chipsModel.setChipsNumber(chipsNumber);
         chipsModel.setCheckedChipsNum(checkedChipsNum);
+
         setContentView(R.layout.activity_main);
         initFragment();
     }

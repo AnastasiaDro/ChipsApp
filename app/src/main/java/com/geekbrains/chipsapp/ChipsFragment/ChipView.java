@@ -122,7 +122,7 @@ public class ChipView extends View {
         // если атрибут не будет указан в макете
         checkedColor = typedArray.getColor(R.styleable.ChipView_checkedColor, Color.RED);
         radius = typedArray.getInteger(R.styleable.ChipView_radius, 10);
-
+        isChecked = typedArray.getBoolean(R.styleable.ChipView_isChecked, false);
 // В конце работы дадим сигнал, что массив со значениями атрибутов
         // больше не нужен. Система в дальнейшем будет переиспользовать этот
         // объект, и мы больше не получим к нему доступ из этого элемента

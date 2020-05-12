@@ -1,5 +1,6 @@
 package com.geekbrains.chipsapp.ChipsFragment;
 
+import android.util.Log;
 import android.view.View;
 
 public class ChipClickListener implements View.OnClickListener {
@@ -15,6 +16,12 @@ public class ChipClickListener implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         chipView.changeColor();
-        chipsModel.setIsChecked(chipView.getIsChecked());
+        if(chipView.getIsChecked()==true){
+            chipsModel.setCheckedChipsNum(chipsModel.getCheckedChipsNum()+1);
+        }
+        if(chipView.getIsChecked()==false){
+            chipsModel.setCheckedChipsNum(chipsModel.getCheckedChipsNum()-1);
+        }
+        Log.d("ChipClickListener", "Число чекнутых жетонов: "+chipsModel.getCheckedChipsNum());
     }
 }
