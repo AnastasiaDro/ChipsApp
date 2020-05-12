@@ -18,7 +18,8 @@ public class ChipsModel {
     int checkedChipsNum;
     //флаг ченкутости жетона
     boolean isChecked;
-
+    int chipMinNum;
+    int chipMaxNum;
 
 
 
@@ -29,6 +30,8 @@ public class ChipsModel {
         chipsMap = new HashMap();
         chipsNumber = 1;
         int checkedChipsNumber = 0;
+        chipMinNum = 1;
+        chipMaxNum = 20;
     }
 
 //Метод получения chipsModel
@@ -73,5 +76,9 @@ public class ChipsModel {
     public void setCheckedChipsNum(int checkedChipsNumber) {this.checkedChipsNum = checkedChipsNumber;}
     public boolean getIsChecked() { return isChecked;}
     public void setIsChecked(boolean checked) {isChecked = checked;}
+
+    //минимальное и максимальное число жетонов
+    public int getChipMinNum() { return chipMinNum; }
+    public int getChipMaxNum() { return chipMaxNum; }
 
 }

@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     //Фрагменты
     ChipsFragment chipsFragment;
     AboutFragment aboutFragment;
+    ChipsNumAlert chipsNumAlert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         //восстановим количество жетонов
         chipsNumber = mSettings.getInt(APP_PREFERENCES_CHIPS_NUMBER, 1);
         checkedChipsNum = mSettings.getInt(APP_PREFERENCES_CHECKED_CHIPS_NUMBER, 1);
+        //временная переменная
         chipsModel.setChipsNumber(chipsNumber);
         chipsModel.setCheckedChipsNum(checkedChipsNum);
         setContentView(R.layout.activity_main);
@@ -69,8 +71,9 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.changeChipsNum:
-                //TODO
                 //должно выскакивать окошко с выбором количества жетонов
+                chipsNumAlert  = new ChipsNumAlert();
+                chipsNumAlert.show(getSupportFragmentManager(), "chipsNumAlert");
                 return true;
             case R.id.aboutApp:
                 //переходим на фрагмент настроек
