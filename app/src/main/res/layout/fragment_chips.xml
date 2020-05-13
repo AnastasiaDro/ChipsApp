@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/chipTableLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center">
 
-
     <TableRow
+        android:id="@+id/tableRow1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center">
@@ -16,6 +17,7 @@
             android:id="@+id/chipView"
             android:layout_width="100sp"
             android:layout_height="100sp"
+            android:layout_marginBottom="10dp"
             app:radius="50" />
     </TableRow>
 

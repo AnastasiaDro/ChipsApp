@@ -1,6 +1,11 @@
 package com.geekbrains.chipsapp.ChipsFragment;
 
 
+import android.app.Activity;
+import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.view.ViewGroup;
+
 import com.geekbrains.chipsapp.interfaces.Observable;
 import com.geekbrains.chipsapp.interfaces.Observer;
 
@@ -21,7 +26,12 @@ public class ChipsModel implements Observable {
     boolean isChecked;
     int chipMinNum;
     int chipMaxNum;
+    double diagonalInches;
+   Activity activity;
 
+
+
+    ViewGroup.LayoutParams layoutParams;
 
 
     //конструктор
@@ -33,7 +43,7 @@ public class ChipsModel implements Observable {
         checkedChipsNum = 0;
         chipMinNum = 1;
         chipMaxNum = 20;
-    }
+            }
 
 //Метод получения chipsModel
     public static ChipsModel getInstance() {
@@ -66,6 +76,9 @@ public class ChipsModel implements Observable {
 
     }
 
+
+
+
     //геттеры и сеттеры
     //количество жетонов
     public int getChipsNumber() {
@@ -85,4 +98,13 @@ public class ChipsModel implements Observable {
     public int getChipMinNum() { return chipMinNum; }
     public int getChipMaxNum() { return chipMaxNum; }
 
+    //активность
+    public void setActivity(Activity activity) { this.activity = activity; }
+
+    //диагональ
+
+    public double getDiagonalInches() { return diagonalInches; }
+
+    public ViewGroup.LayoutParams getLayoutParams() { return layoutParams; }
+    public void setLayoutParams(ViewGroup.LayoutParams layoutParams) { this.layoutParams = layoutParams; }
 }

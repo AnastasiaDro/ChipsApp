@@ -43,6 +43,7 @@ public class ChipsNumAlert extends DialogFragment {
                 @Override
                 public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
                     newChipsNum = newVal;
+                    chipsModel.notifyObservers();
                 }
             });
         }

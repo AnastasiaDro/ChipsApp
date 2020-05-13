@@ -6,10 +6,11 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.RectF;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -19,21 +20,21 @@ import com.geekbrains.chipsapp.R;
 public class ChipView extends View {
 
     //неактивный цвет
-    private int baseColor = Color.GRAY;
+    int baseColor = Color.GRAY;
     //цвет, когда выбрали жетон
-    private int checkedColor = Color.RED;
+    int checkedColor = Color.RED;
     float x;
     float y;
     // Ширина элемента
-    private int width = 0;
+    int width = 70;
     // Высота элемента
-    private int height = 0;
+    int height = 70;
     ChipsModel chipsModel = ChipsModel.getInstance();
 
     private boolean isChecked;
 
     //радиус
-    private int radius;
+    int radius;
 
     //Краска
     private Paint chipPaint;
@@ -41,14 +42,14 @@ public class ChipView extends View {
     public ChipView(Context context) {
         super(context);
         init();
-
-    }
+       }
 
     // Вызывается при добавлении элемента в макет
     // AttributeSet attrs - набор параметров, указанных в макете для этого
     // элемента
     public ChipView (Context context, AttributeSet attrs){
         super(context, attrs);
+        Log.d("КОНСТРУКТОР 2", "сработал консруктор 2");
         initAttr(context, attrs);
         init();
     }
@@ -59,6 +60,7 @@ public class ChipView extends View {
     // int defStyleAttr - базовый установленный стиль
     public ChipView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        Log.d("DEFSTYLEATR ", ""+defStyleAttr);
         initAttr(context, attrs);
         init();
     }
@@ -71,11 +73,10 @@ public class ChipView extends View {
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public ChipView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
+        Log.d("DEFSTYLEATR ", ""+defStyleAttr);
         initAttr(context, attrs);
         init();
     }
-
-
 
     private void init() {
         radius = width/2;
@@ -103,7 +104,7 @@ public class ChipView extends View {
         //получим координаты (центр)
         x = width/2;
         y = height/2;
-        radius = width/2;
+        radius = (int) (width/2.5);
     }
 
     // Инициализация атрибутов пользовательского элемента из xml
@@ -123,6 +124,7 @@ public class ChipView extends View {
         checkedColor = typedArray.getColor(R.styleable.ChipView_checkedColor, Color.RED);
         radius = typedArray.getInteger(R.styleable.ChipView_radius, 10);
         isChecked = typedArray.getBoolean(R.styleable.ChipView_isChecked, false);
+
 // В конце работы дадим сигнал, что массив со значениями атрибутов
         // больше не нужен. Система в дальнейшем будет переиспользовать этот
         // объект, и мы больше не получим к нему доступ из этого элемента
@@ -148,6 +150,16 @@ public class ChipView extends View {
 
     public void setIsChecked(boolean checked) {
         isChecked = checked;
+    }
+
+    public void setPaintColor(){
+        if (isChecked){
+            chipPaint.setColor(checkedColor);
+        }
+        if (!isChecked){
+            chipPaint.setColor(baseColor);
+        }
+        invalidate();
     }
 
 

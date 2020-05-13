@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.geekbrains.chipsapp.ChipsFragment.ChipView;
 import com.geekbrains.chipsapp.ChipsFragment.ChipsFragment;
 import com.geekbrains.chipsapp.ChipsFragment.ChipsModel;
 import com.geekbrains.chipsapp.aboutFragment.AboutFragment;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     boolean isChecked;
 
 //модель
-    ChipsModel chipsModel = ChipsModel.getInstance();
+    ChipsModel chipsModel;
 
     //Фрагменты
     ChipsFragment chipsFragment;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        chipsModel = ChipsModel.getInstance();
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         //восстановим количество жетонов
         chipsNumber = mSettings.getInt(APP_PREFERENCES_CHIPS_NUMBER, 1);
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         //временная переменная
         chipsModel.setChipsNumber(chipsNumber);
         chipsModel.setCheckedChipsNum(checkedChipsNum);
-
+        chipsModel.setActivity(this);
         setContentView(R.layout.activity_main);
         initFragment();
     }
