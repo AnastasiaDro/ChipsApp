@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.options_menu, menu);
         MenuItem changeChipsNumIt = menu.findItem(R.id.changeChipsNum);
+        MenuItem clearChipsIt = menu.findItem(R.id.clearCheck);
         MenuItem aboutAppIt = menu.findItem(R.id.aboutApp);
         return true;
     }
@@ -81,8 +82,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.clearCheck:
                 chipsModel.setCheckedChipsNum(0);
                 chipsModel.notifyObservers();
+                return true;
             case R.id.aboutApp:
-                //переходим на фрагмент настроек
+                //переходим на фрагмент о том о сем
                 aboutFragment.postFragment(this, R.id.placeForFr);
                 return true;
             default:

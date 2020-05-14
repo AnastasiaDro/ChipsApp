@@ -95,6 +95,10 @@ public class ChipView extends View {
         canvas.drawCircle(x, y, radius, chipPaint);
     }
 
+    public void setRadius(int radius) {
+        this.radius = radius;
+    }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
@@ -104,7 +108,7 @@ public class ChipView extends View {
         //получим координаты (центр)
         x = width/2;
         y = height/2;
-        radius = (int) (width/2.5);
+        radius = (int) (height/2);
     }
 
     // Инициализация атрибутов пользовательского элемента из xml
@@ -122,7 +126,7 @@ public class ChipView extends View {
         // Вторым параметром идёт значение по умолчанию. Оно будет подставлено,
         // если атрибут не будет указан в макете
         checkedColor = typedArray.getColor(R.styleable.ChipView_checkedColor, Color.RED);
-        radius = typedArray.getInteger(R.styleable.ChipView_radius, 10);
+        radius = typedArray.getInteger(R.styleable.ChipView_radius, 45);
         isChecked = typedArray.getBoolean(R.styleable.ChipView_isChecked, false);
 
 // В конце работы дадим сигнал, что массив со значениями атрибутов

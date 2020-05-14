@@ -37,6 +37,8 @@ import com.geekbrains.chipsapp.interfaces.Observer;
 
 import org.xmlpull.v1.XmlPullParser;
 
+import java.security.acl.Group;
+
 import static com.geekbrains.chipsapp.Constants.APP_PREFERENCES;
 import static com.geekbrains.chipsapp.Constants.APP_PREFERENCES_CHIPS_NUMBER;
 
@@ -56,6 +58,8 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
     TableRow tableRow1;
     int forPhoneDivider;
     int forTabDivider;
+    float widthDpi;
+    float heightDpi;
     //для вычисления размеров экрана
     double diagonalInches;
     ViewGroup.LayoutParams layoutParams;
@@ -73,7 +77,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
         forTabDivider = 10;
         context = getContext();
         diagonalInches = getDispDiagonalInches();
-
     }
 
 
@@ -170,37 +173,43 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
     private void createChipsAndRows(int rowCount, int divider) {
         int chipsNum = chipsNumber;
         int chekedNum = checkedChipsNum;
+        float chipSize = heightDpi/rowCount-2;
         for (int i = 0; i < rowCount; i++) {
             TableRow tableRow = new TableRow(context);
             tableRow.setGravity(Gravity.CENTER);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
             tableRow.setLayoutParams(layoutParams);
             //если делитель (напр 5) менше числа жетонов (напр 8),
             //то мы отрисуем в строке 5
             //если оставшихся жетонов меньше (5 отрисовали, 3 осталось),
             //то отрисуем оставшиеся 3
-           // if (divider < chipsNum) {
-                chekedNum = createChipsForRow(tableRow, divider, chekedNum, chipsNum);
-            //}
-//            if (divider >= chipsNum) {
-//                chekedNum = createChipsForRow(tableRow, divider, chekedNum, chipsNum);
-//            }
+            chekedNum = createChipsForRow(chipSize, tableRow, divider, chekedNum, chipsNum);
             //в конце цикла уменьшаем число жетонов на делитель
             chipsNum = chipsNum - divider;
             tableLayout.addView(tableRow);
         }
+        //tableLayout.setLayoutParams(layoutParams);
     }
 
     //заполнение строки кастомными жетончиками
     //и отмечание их, если они отмечены
-    private int createChipsForRow(TableRow tableRow, int chipsNumInRow, int checkedNum, int chipsNum) {
+    private int createChipsForRow(float chipSize, TableRow tableRow, int chipsNumInRow, int checkedNum, int chipsNum) {
         int counter = 0;
         tableRow.removeAllViews();
         for (int i = 0; i < chipsNumInRow && i < chipsNum; i++) {
             ChipView chipView = new ChipView(context);
-            TextView textView = new TextView(context);
-            textView.setText("блаблабла");
             chipView.setLayoutParams(chipsModel.getLayoutParams());
+//            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(30, 30);
+//
+//            chipView.setLayoutParams(lp);
+//            chipView.setRadius((int)chipSize);
+//            chipView.width = (int)chipSize;
+//            chipView.height = (int)chipSize;
+//            chipView.baseColor = Color.GRAY;
+//            chipView.checkedColor = Color.RED;
+//            chipView.setId(R.id.chipView);
+//
+//            chipView.invalidate();
             if (checkedNum > 0) {
                 chipView.setIsChecked(true);
                 chipView.setPaintColor();
@@ -208,7 +217,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
             }
             chipView.setOnClickListener(new ChipClickListener(chipView));
             tableRow.addView(chipView);
-            tableRow.addView(textView);
             counter++;
         }
         Log.d("Создано жетонов: ", "" + counter);
@@ -223,8 +231,8 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
         int widthPixels = metrics.widthPixels;
         int heightPixels = metrics.heightPixels;
         //кол-во пикселей на дюйм в ширину и высоту
-        float widthDpi = metrics.xdpi;
-        float heightDpi = metrics.ydpi;
+        widthDpi = metrics.xdpi;
+        heightDpi = metrics.ydpi;
         //дюймы в ширину и высоту
         float widthInches = widthPixels / widthDpi;
         float heightInches = heightPixels / heightDpi;
