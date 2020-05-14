@@ -1,6 +1,7 @@
 package com.geekbrains.chipsapp.ChipsFragment;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
@@ -28,6 +29,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -125,6 +127,20 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+        chipsModel.registerObserver(this);
+//        updateViewData();
+//        takeChipsSettings();
+//        //в строке у телефона будет 5 жетонов
+//        forPhoneDivider = 5;
+//        //в строке у планшета - 10
+//        forTabDivider = 10;
+//        context = getContext();
+//        diagonalInches = getDispDiagonalInches();
+    }
+
+    @Override
     public void updateViewData() {
         Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -199,17 +215,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
         for (int i = 0; i < chipsNumInRow && i < chipsNum; i++) {
             ChipView chipView = new ChipView(context);
             chipView.setLayoutParams(chipsModel.getLayoutParams());
-//            ViewGroup.LayoutParams lp = new ViewGroup.LayoutParams(30, 30);
-//
-//            chipView.setLayoutParams(lp);
-//            chipView.setRadius((int)chipSize);
-//            chipView.width = (int)chipSize;
-//            chipView.height = (int)chipSize;
-//            chipView.baseColor = Color.GRAY;
-//            chipView.checkedColor = Color.RED;
-//            chipView.setId(R.id.chipView);
-//
-//            chipView.invalidate();
             if (checkedNum > 0) {
                 chipView.setIsChecked(true);
                 chipView.setPaintColor();

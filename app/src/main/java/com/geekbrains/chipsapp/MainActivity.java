@@ -1,6 +1,8 @@
 package com.geekbrains.chipsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
+
 import static com.geekbrains.chipsapp.Constants.*;
 
 import android.content.Context;
