@@ -132,36 +132,42 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
                 //получим кол-во жетонов и кол-во отмеченных жетонов
                 takeChipsSettings();
                 tableLayout.removeAllViews();
-               //проверим, телефон или планшет, меньше 7 - телефон
-                if (diagonalInches < 6) {createAllChips(forPhoneDivider);}
-                if (diagonalInches >=6) {createAllChips(forTabDivider);}
-
+                //проверим, телефон или планшет, меньше 7 - телефон
+                if (diagonalInches < 6) {
+                    createAllChips(forPhoneDivider);
+                }
+                if (diagonalInches >= 6) {
+                    createAllChips(forTabDivider);
+                }
             }
         });
     }
 
 
-    private void takeChipsSettings(){
+    private void takeChipsSettings() {
         //получим число жетонов из модели
         chipsNumber = chipsModel.getChipsNumber();
         //получим число собранных жетонов
         checkedChipsNum = chipsModel.getCheckedChipsNum();
-        Log.d("takeChipsSettings", "число жетонов: "+chipsNumber + " отмеченных: "+ checkedChipsNum);
+        Log.d("takeChipsSettings", "число жетонов: " + chipsNumber + " отмеченных: " + checkedChipsNum);
     }
 
 
-    private void createAllChips(int divider){
+    private void createAllChips(int divider) {
         //получим число строк: округлим в большую сторону кол-во жетонов
         //на делитель (5 или 10)
         //TODO неправильно округляет, падла
-        int rowCount = (int) Math.ceil(chipsNumber/divider);
-        Log.d("createAllChips", "rowCount: "+ rowCount);
+        int rowCount = (int) Math.floor(chipsNumber / divider);
+        if ((chipsNumber % divider)> 0){
+            ++rowCount;
+        }
+        Log.d("createAllChips", "rowCount: " + rowCount);
         createChipsAndRows(rowCount, divider);
     }
 
     //в зависимости от числа строк и делителя (разного для телефона и планшета)
     //нарисуем все строки и столбцы
-    private void createChipsAndRows(int rowCount, int divider){
+    private void createChipsAndRows(int rowCount, int divider) {
         int chipsNum = chipsNumber;
         int chekedNum = checkedChipsNum;
         for (int i = 0; i < rowCount; i++) {
@@ -173,12 +179,12 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
             //то мы отрисуем в строке 5
             //если оставшихся жетонов меньше (5 отрисовали, 3 осталось),
             //то отрисуем оставшиеся 3
-            if (divider<chipsNum) {
-                chekedNum= createChipsForRow(tableRow, divider, chekedNum);
-            }
-            if (divider>=chipsNum) {
-                chekedNum = createChipsForRow(tableRow, divider, chekedNum);
-            }
+           // if (divider < chipsNum) {
+                chekedNum = createChipsForRow(tableRow, divider, chekedNum, chipsNum);
+            //}
+//            if (divider >= chipsNum) {
+//                chekedNum = createChipsForRow(tableRow, divider, chekedNum, chipsNum);
+//            }
             //в конце цикла уменьшаем число жетонов на делитель
             chipsNum = chipsNum - divider;
             tableLayout.addView(tableRow);
@@ -187,29 +193,31 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
 
     //заполнение строки кастомными жетончиками
     //и отмечание их, если они отмечены
-    private int createChipsForRow(TableRow tableRow, int chipsNumInRow, int checkedNum){
+    private int createChipsForRow(TableRow tableRow, int chipsNumInRow, int checkedNum, int chipsNum) {
         int counter = 0;
-        //очистим строку
         tableRow.removeAllViews();
-        for (int i = 0; i < chipsNumInRow; i++) {
-            ChipView  chipView = new ChipView(context);
+        for (int i = 0; i < chipsNumInRow && i < chipsNum; i++) {
+            ChipView chipView = new ChipView(context);
+            TextView textView = new TextView(context);
+            textView.setText("блаблабла");
             chipView.setLayoutParams(chipsModel.getLayoutParams());
-            if (checkedNum > 0){
+            if (checkedNum > 0) {
                 chipView.setIsChecked(true);
                 chipView.setPaintColor();
                 checkedNum--;
             }
             chipView.setOnClickListener(new ChipClickListener(chipView));
             tableRow.addView(chipView);
+            tableRow.addView(textView);
             counter++;
         }
-        Log.d("Создано жетонов: ","" + counter);
+        Log.d("Создано жетонов: ", "" + counter);
         counter = 0;
         return checkedNum;
     }
 
-    private double getDispDiagonalInches(){
-        DisplayMetrics metrics= new DisplayMetrics();
+    private double getDispDiagonalInches() {
+        DisplayMetrics metrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
         //количество пикселей в ширину и высоту
         int widthPixels = metrics.widthPixels;
@@ -218,8 +226,8 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
         float widthDpi = metrics.xdpi;
         float heightDpi = metrics.ydpi;
         //дюймы в ширину и высоту
-        float widthInches = widthPixels/widthDpi;
-        float heightInches = heightPixels/heightDpi;
+        float widthInches = widthPixels / widthDpi;
+        float heightInches = heightPixels / heightDpi;
         //диагональ
         double diagonalInches = Math.sqrt(
                 (widthInches * widthInches)
@@ -227,10 +235,4 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
         Log.d("getDispDiagonalImches", "диагональ: " + diagonalInches);
         return diagonalInches;
     }
-
-
-
-
-
-
 }

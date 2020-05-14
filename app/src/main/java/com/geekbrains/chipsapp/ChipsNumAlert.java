@@ -39,6 +39,7 @@ public class ChipsNumAlert extends DialogFragment {
             chipNumPicker = view.findViewById(R.id.chipsNumPicker);
             chipNumPicker.setMinValue(chipsModel.getChipMinNum());
             chipNumPicker.setMaxValue(chipsModel.getChipMaxNum());
+            newChipsNum = 1;
             chipNumPicker.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                 @Override
                 public void onValueChange(NumberPicker picker, int oldVal, int newVal) {

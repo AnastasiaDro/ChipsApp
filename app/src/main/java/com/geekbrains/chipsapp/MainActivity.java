@@ -78,10 +78,12 @@ public class MainActivity extends AppCompatActivity {
                 chipsNumAlert  = new ChipsNumAlert();
                 chipsNumAlert.show(getSupportFragmentManager(), "chipsNumAlert");
                 return true;
+            case R.id.clearCheck:
+                chipsModel.setCheckedChipsNum(0);
+                chipsModel.notifyObservers();
             case R.id.aboutApp:
                 //переходим на фрагмент настроек
                 aboutFragment.postFragment(this, R.id.placeForFr);
-
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

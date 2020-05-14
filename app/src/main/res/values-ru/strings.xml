@@ -3,6 +3,7 @@
     <string name="app_name">ChipsApp</string>
     <string name="aboutApp">О приложении</string>
     <string name="changeChips">Кол-во жетонов</string>
+    <string name="clearChecked">Очистить</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 

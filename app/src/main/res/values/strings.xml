@@ -2,6 +2,7 @@
     <string name="app_name">ChipsApp</string>
     <string name="aboutApp">About app</string>
     <string name="changeChips">Chips number</string>
+    <string name="clearChecked">Unmark</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
 </resources>
