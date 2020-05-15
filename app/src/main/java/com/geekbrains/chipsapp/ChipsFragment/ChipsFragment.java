@@ -71,7 +71,7 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         chipsModel = ChipsModel.getInstance();
-        chipsModel.registerObserver(this);
+
         takeChipsSettings();
         //в строке у телефона будет 5 жетонов
         forPhoneDivider = 5;
