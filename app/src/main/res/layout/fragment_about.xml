@@ -13,47 +13,48 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064"
+        app:layout_constraintVertical_bias="0.054"
         app:srcCompat="@drawable/me1" />
 
     <TextView
         android:id="@+id/aboutAppTV"
-        android:layout_width="379dp"
-        android:layout_height="231dp"
+        android:layout_width="420dp"
+        android:layout_height="181dp"
 
+        android:layout_marginStart="41dp"
         android:text="@string/aboutAppTV"
-        android:textSize="18sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.41"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.053" />
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.038" />
 
     <TableLayout
         android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="299dp"
+        android:layout_height="108dp"
+        android:layout_marginStart="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/aboutAppTV">
+        app:layout_constraintTop_toBottomOf="@+id/aboutAppTV"
+        app:layout_constraintVertical_bias="0.225">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20sp"
-            >
+            android:layout_marginBottom="20sp">
 
             <TextView
                 android:id="@+id/myFBTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="30sp"
-                android:text="TextView" />
+                android:text="@string/my_fb" />
 
             <TextView
                 android:id="@+id/myFBLinkTV"
@@ -71,8 +72,8 @@
                 android:id="@+id/aboutTherapyTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:layout_marginEnd="30sp"/>
+                android:layout_marginEnd="30sp"
+                android:text="@string/about_therapy" />
 
             <TextView
                 android:id="@+id/aboutTherapyLinkTV"
@@ -83,15 +84,14 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/myChannelTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView"
-                android:layout_marginEnd="30sp"/>
+                android:layout_marginEnd="30sp"
+                android:text="@string/my_channel" />
 
             <TextView
                 android:id="@+id/myChannelLinkTV"
@@ -100,8 +100,6 @@
                 android:text="TextView" />
         </TableRow>
     </TableLayout>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
