@@ -71,7 +71,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         chipsModel = ChipsModel.getInstance();
-
         takeChipsSettings();
         //в строке у телефона будет 5 жетонов
         forPhoneDivider = 5;
@@ -117,7 +116,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
         FragmentTransaction ft = fragmentManager.beginTransaction();
         ft.replace(placeId, this);
         ft.commit();
-        updateViewData();
     }
 
     @Override
@@ -130,14 +128,7 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
     public void onResume(){
         super.onResume();
         chipsModel.registerObserver(this);
-//        updateViewData();
-//        takeChipsSettings();
-//        //в строке у телефона будет 5 жетонов
-//        forPhoneDivider = 5;
-//        //в строке у планшета - 10
-//        forTabDivider = 10;
-//        context = getContext();
-//        diagonalInches = getDispDiagonalInches();
+        updateViewData();
     }
 
     @Override
@@ -204,7 +195,7 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
             chipsNum = chipsNum - divider;
             tableLayout.addView(tableRow);
         }
-        //tableLayout.setLayoutParams(layoutParams);
+
     }
 
     //заполнение строки кастомными жетончиками
