@@ -51,7 +51,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
     //число жетонов
     int chipsNumber;
     int checkedChipsNum;
-    ChipsFragment chipsFragment;
 
     //для отладки вид жетона
     ChipView chipView;
@@ -65,7 +64,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
     //для вычисления размеров экрана
     double diagonalInches;
     ViewGroup.LayoutParams layoutParams;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -162,7 +160,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
         Log.d("takeChipsSettings", "число жетонов: " + chipsNumber + " отмеченных: " + checkedChipsNum);
     }
 
-
     private void createAllChips(int divider) {
         //получим число строк: округлим в большую сторону кол-во жетонов
         //на делитель (5 или 10)
@@ -195,7 +192,6 @@ public class ChipsFragment extends Fragment implements FragmentInterface, Observ
             chipsNum = chipsNum - divider;
             tableLayout.addView(tableRow);
         }
-
     }
 
     //заполнение строки кастомными жетончиками
