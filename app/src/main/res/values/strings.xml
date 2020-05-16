@@ -5,11 +5,12 @@
     <string name="clearChecked">Unmark</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
-    <string name="aboutAppTV">Hello everyone! My name is Anastasia Drogunova.
-        I am working as neiropsychologist and ontogenetic kinesitherapist with children with ASD about 8 years.
+    <string name="aboutAppTV">Hello everyone! \n
+        My name is Anastasia Drogunova. I am working as neiropsychologist and ontogenetic kinesitherapist with children with ASD about 8 years. \n
         One of my dreams is making good and usefull apps for my students.
-    This why I started to learn mobileDev. This is my first app, so be kindfull for me please =)
-    Also I have youtube channel: AutismSpectrumChannel. You can write me to my FB profile (all links below)</string>
+        This why I started to learn mobileDev.  \n
+        This is my first app, so be kindfull for me please =) \n
+        Also I have youtube channel: AutismSpectrumChannel. You can write me to my FB profile (all links below)</string>
 
     <string name="my_channel">My channel</string>
     <string name="my_fb">My fb</string>

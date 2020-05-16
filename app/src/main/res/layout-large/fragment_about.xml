@@ -13,26 +13,26 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintHorizontal_bias="0.039"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.054"
+        app:layout_constraintVertical_bias="0.085"
         app:srcCompat="@drawable/me1" />
 
     <TextView
         android:id="@+id/aboutAppTV"
-        android:layout_width="589dp"
-        android:layout_height="273dp"
+        android:layout_width="623dp"
+        android:layout_height="261dp"
 
         android:layout_marginStart="41dp"
         android:text="@string/aboutAppTV"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.112" />
+        app:layout_constraintVertical_bias="0.174" />
 
     <TableLayout
         android:id="@+id/tableLayout"
