@@ -27,9 +27,8 @@ public class MainActivity extends AppCompatActivity {
     int chipsNumber;
     //число отмеченных жетонов
     int checkedChipsNum;
-    boolean isChecked;
 
-//модель
+    //модель
     ChipsModel chipsModel;
 
     //Фрагменты
@@ -52,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initFragment();
     }
-
 
 
     //создание и публикация фрагмента
@@ -78,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.changeChipsNum:
                 //должно выскакивать окошко с выбором количества жетонов
-                chipsNumAlert  = new ChipsNumAlert();
+                chipsNumAlert = new ChipsNumAlert();
                 chipsNumAlert.show(getSupportFragmentManager(), "chipsNumAlert");
                 return true;
             case R.id.clearCheck:
