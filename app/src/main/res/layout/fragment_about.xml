@@ -60,7 +60,9 @@
                 android:id="@+id/myFBLinkTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:autoLink="all"
+                android:text="TextView"
+                />
         </TableRow>
 
         <TableRow
@@ -79,6 +81,7 @@
                 android:id="@+id/aboutTherapyLinkTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autoLink="all"
                 android:text="TextView" />
         </TableRow>
 
@@ -97,6 +100,7 @@
                 android:id="@+id/myChannelLinkTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:autoLink="all"
                 android:text="TextView" />
         </TableRow>
     </TableLayout>
