@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TokensApp</string>
+    <string name="app_name">Жетоны</string>
     <string name="aboutApp">О приложении</string>
     <string name="changeChips">Кол-во жетонов</string>
     <string name="clearChecked">Очистить</string>
@@ -13,7 +13,7 @@
         Это приложение - моя первая простая работа. Надеюсь, оно вам пригодится. \n
         У меня также есть youtube-канал AutismSpectrumChannel, где, вероятно, вы сможете найти полезную информацию по теме аутизма и не только.
         Почитать про кинезотерапию, войти на канал вы можете по ссылкам ниже. \n
-        Если захотите связаться со мной - пишите мне на Facebook.
+        Если захотите связаться со мной - пишите мне на Facebook. \n
        </string>
 
     <string name="my_channel">Мой канал</string>
