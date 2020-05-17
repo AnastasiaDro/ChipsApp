@@ -47,61 +47,49 @@
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20sp">
-
-            <TextView
-                android:id="@+id/myFBTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="30sp"
-                android:text="@string/my_fb" />
+            android:layout_marginBottom="20sp"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/myFBLinkTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="all"
-                android:text="TextView"
-                />
+                android:gravity="center"
+                android:text="@string/my_fb"
+                android:textColor="@color/linkColor" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="20sp">
-
-            <TextView
-                android:id="@+id/aboutTherapyTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="30sp"
-                android:text="@string/about_therapy" />
+            android:layout_marginBottom="20sp"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/aboutTherapyLinkTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="all"
-                android:text="TextView" />
+                android:text="@string/about_therapy"
+                android:gravity="center"
+                android:textColor="@color/linkColor"/>
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:gravity="center">
 
-            <TextView
-                android:id="@+id/myChannelTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="30sp"
-                android:text="@string/my_channel" />
 
             <TextView
                 android:id="@+id/myChannelLinkTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="all"
-                android:text="TextView" />
+                android:text="@string/my_channel"
+                android:gravity="center"
+                android:textColor="@color/linkColor"/>
         </TableRow>
     </TableLayout>
 
