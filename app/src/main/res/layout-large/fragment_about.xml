@@ -23,6 +23,7 @@
         android:layout_height="261dp"
         android:layout_marginStart="41dp"
         android:text="@string/aboutAppTV"
+        android:textAlignment="viewStart"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
