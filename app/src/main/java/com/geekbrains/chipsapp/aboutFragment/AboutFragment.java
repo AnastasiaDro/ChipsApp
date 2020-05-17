@@ -4,15 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.geekbrains.chipsapp.interfaces.FragmentInterface;
 import com.geekbrains.chipsapp.R;
+
 
 public class AboutFragment extends Fragment implements FragmentInterface {
 
@@ -25,7 +26,9 @@ public class AboutFragment extends Fragment implements FragmentInterface {
 
     @Override
     public void findViews(View view) {
-
+        TextView myFBLinkTV = view.findViewById(R.id.myFBLinkTV);
+        TextView aboutTherapyLinkTV = view.findViewById(R.id.aboutTherapyLinkTV);
+        TextView myChannelLinkTV = view.findViewById(R.id.myChannelLinkTV);
     }
 
     @Override
