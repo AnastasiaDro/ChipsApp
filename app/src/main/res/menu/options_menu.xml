@@ -9,8 +9,14 @@
     app:showAsAction="never" />
 
     <item
-        android:id="@+id/aboutApp"
+        android:id="@+id/clearCheck"
         android:orderInCategory="200"
+        android:title="@string/clearChecked"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/aboutApp"
+        android:orderInCategory="300"
         android:title="@string/aboutApp"
         app:showAsAction="never" />
 </menu>

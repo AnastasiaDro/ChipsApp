@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ChipsApp</string>
+    <string name="app_name">Жетоны</string>
     <string name="aboutApp">О приложении</string>
     <string name="changeChips">Кол-во жетонов</string>
+    <string name="clearChecked">Очистить</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="aboutAppTV">Всем привет! \n
+        Меня зовут Дрогунова Анастасия. Я - клинический нейро- и патопсихолог и онтогенетический кинезотерапевт,
+        и работаю с детьми с аутизмом около 8 лет. У меня есть мечта - создавать полезные приложения для работы с детьми с аутизмом
+        и другими особенностями развития. Поэтому я решила освоить андроид-разработку. \n
+        Это приложение - моя первая простая работа. Надеюсь, оно вам пригодится. \n
+        У меня также есть youtube-канал AutismSpectrumChannel, где, вероятно, вы сможете найти полезную информацию по теме аутизма и не только.
+        Почитать про кинезотерапию, войти на канал вы можете по ссылкам ниже. \n
+        Если захотите связаться со мной - пишите мне на Facebook. \n
+       </string>
+
+    <string name="my_channel">Мой канал</string>
+    <string name="my_fb">Мой FB-профиль</string>
+    <string name="about_therapy">О терапии</string>
 </resources>
