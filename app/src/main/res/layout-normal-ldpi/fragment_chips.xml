@@ -18,10 +18,10 @@
         <com.geekbrains.chipsapp.ChipsFragment.ChipView
             android:id="@+id/chipView"
             android:layout_width="50dp"
-            android:layout_height="47dp"
-            android:layout_marginStart="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="2dp"
             android:layout_marginTop="7dp"
-            android:layout_marginEnd="0dp"
+            android:layout_marginEnd="2dp"
             android:layout_marginBottom="7dp"
             android:layout_weight="1" />
 
