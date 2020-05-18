@@ -10,18 +10,18 @@
 
     <TableRow
         android:id="@+id/tableRow1"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="20"
         android:gravity="center">
 
         <com.geekbrains.chipsapp.ChipsFragment.ChipView
             android:id="@+id/chipView"
-            android:layout_width="933dp"
-            android:layout_height="51dp"
-            android:layout_marginStart="10dp"
+            android:layout_width="896dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="20dp"
             android:layout_marginBottom="30dp"
             android:layout_weight="1" />
 
